@@ -30,7 +30,12 @@ export async function createInvoice(formData: FormData) {
   VALUES (${customerId}, ${amountInCents}, ${status}, ${date})
   `;
 
+  // what this did is just adding `X-Action-Revalidated` header in response to inform
+  // client to clear Client-side Router Cache.
   revalidatePath("/dashboard/invoices");
+
+  // it just redirects to another page route on the server side ending with return intermediate
+  // abstract format of redirected page, nothing to do with client side.
   redirect("/dashboard/invoices");
 }
 
@@ -58,4 +63,5 @@ export async function updateInvoice(id: string, formData: FormData) {
 export async function deleteInvoice(id: string) {
   await sql`DELETE FROM invoices WHERE id = ${id}`;
   revalidatePath("/dashboard/invoices");
+  // no redirect means that return intermediate abstract format of current page as response
 }
