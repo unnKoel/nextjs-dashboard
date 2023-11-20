@@ -13,4 +13,9 @@ For more information, see the [course curriculum](https://nextjs.org/learn) on t
 - Implemented Streaming to prevent slow data requests from blocking your whole page, and to allow the user to start interacting with the UI without waiting for everything to load.
 - Move data fetching down to the components that need it, thus isolating which parts of your routes should be dynamic in preparation for Partial Prerendering.
 
-## Q&A
+## tech stack
+- [Auth.js](https://authjs.dev/getting-started/introduction)
+- tailwindcss
+- bcrypt
+- clsx
+- zod
